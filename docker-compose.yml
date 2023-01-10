@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+    go_lang_postgres_database:
+        build:
+            dockerfile: Dockerfile.postgres
+            context: .
+        container_name: go_lang_postgres_database
+        restart: always
+        environment: 
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: Y!f6q?[xuS-,L?Z.
+            POSTGRES_DB: go_game_dbase
+        ports: 
+            - 5433:5432
+        volumes: 
+            - ./postgres:/postgres
+        networks:
+            - shared-network
+            - app
+networks:
+    shared-network:
+        driver: bridge
+    app:
